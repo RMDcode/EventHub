@@ -1,0 +1,21 @@
+<div class="row mt-5">
+    <div class="col-md-4 mb-3" *ngFor="let event of specialEvents">
+      <div class="cards text-center">
+        <div class="card">
+          <img [src]="event.imgsrc" alt="myPic" class="card__img" />
+        <div class="card__info">
+          <h5 class="card__title">{{event.name}}</h5>
+          <p class="card__category">{{event.description}}</p>
+          <div class="card__footer text-muted">{{event.Teacher}}</div>
+          <a routerLink="/sp-register" class="btn btn-success">
+            <button> Admission</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>            
+  </div>
+  <!--Rohit#122334-->
