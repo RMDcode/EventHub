@@ -14,12 +14,12 @@ export class RegisterService {
   signup(data:any):Observable<any>
   { 
     //console.log(data);
-    return this.http.post('http://localhost:4000/event-register/EventRegister',data);
+    return this.http.post('https://bookstore1-5p5m.vercel.app/eventuser',data);
   }
 
   signup1(data:any):Observable<any>
   { 
     //console.log(data);
-    return this.http.post('http://localhost:4000/special-event-register/SpecialRegister',data);
+    return this.http.post('https://bookstore1-5p5m.vercel.app/specialuser',data);
   }
 }

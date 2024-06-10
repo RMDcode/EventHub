@@ -1,26 +1,34 @@
 <div class="heading_style">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Marvellous Infosystems Eventhub</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/events" routerLinkActive="active">Upcoming Marvellous Events for all</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/special" routerLinkActive="active">Events for Marvellous Family Members</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-        <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login to EventHub</a>
-        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>        
-    </ul>
-  </div>
-</nav>    
+  <nav class="navbar border bg-border-semibold bg-base-300 fixed top-0 left-0 right-0 z-50 w-full lg:h-16 h-20">
+    <div class="max-w-screen-2xl container mx-auto sm:px-10 px-4 dark:bg-slate-900 dark:text-white flex justify-between items-center h-full">
+      <div class="flex-1">
+        <a class="btn btn-ghost text-xl" href="#">Marvellous Infosystems Eventhub</a>
+      </div>
+      <div class="flex-none lg:hidden">
+        <input type="checkbox" id="menu-toggle" class="hidden">
+        <label for="menu-toggle" class="btn btn-ghost">
+          <span class="material-icons">menu</span>
+        </label>
+        <div class="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 lg:block hidden lg:hidden absolute right-0 top-full">
+          <ul class="flex flex-col space-y-1">
+            <li><a class="nav-link text-lg" routerLink="/events" routerLinkActive="active">Free Events</a></li>
+            <li><a class="nav-link text-lg" routerLink="/special" routerLinkActive="active">Only Members</a></li>
+            <li *ngIf="!_authService.loggedIn()"><a class="nav-link text-lg" routerLink="/login" routerLinkActive="active">Login to EventHub</a></li>
+            <li *ngIf="_authService.loggedIn()"><a class="nav-link text-lg cursor-pointer" (click)="_authService.logoutUser()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hidden lg:flex lg:items-center lg:space-x-4">
+        <ul class="menu menu-horizontal px-1 flex">
+          <li><a class="nav-link text-lg" routerLink="/events" routerLinkActive="active">Free Events</a></li>
+          <li><a class="nav-link text-lg" routerLink="/special" routerLinkActive="active">Only Members</a></li>
+          <li *ngIf="!_authService.loggedIn()"><a class="nav-link text-lg" routerLink="/login" routerLinkActive="active">Login to EventHub</a></li>
+          <li *ngIf="_authService.loggedIn()"><a class="nav-link text-lg cursor-pointer" (click)="_authService.logoutUser()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>
-<div class="container">
-  <router-outlet></router-outlet>            
+<div class="container mx-auto p-4 mt-20">
+  <router-outlet></router-outlet>
 </div>
