@@ -18,6 +18,7 @@ import { RegisterService } from './register.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpRegisterComponent } from './sp-register/sp-register.component';
+import { FooterComponent } from './Footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SpRegisterComponent } from './sp-register/sp-register.component';
     SpecialEventsComponent,
     ResgisterComponent,
     PagenotfoundComponent,
-    SpRegisterComponent
+    SpRegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
