@@ -7,6 +7,8 @@ import { SpecialEventsComponent } from './special-events/special-events.componen
 import { AuthGuard } from './auth.guard';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SpRegisterComponent } from './sp-register/sp-register.component';
+import { AboutComponent } from './about/about/about.component';
+import { ContactComponent } from './contact/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path:'**',

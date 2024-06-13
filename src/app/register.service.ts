@@ -22,4 +22,9 @@ export class RegisterService {
     //console.log(data);
     return this.http.post('https://bookstore1-5p5m.vercel.app/specialuser',data);
   }
+  signup2(data:any):Observable<any>
+  { 
+    //console.log(data);
+    return this.http.post('https://bookstore1-5p5m.vercel.app/contact',data);
+  }
 }

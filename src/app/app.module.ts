@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpRegisterComponent } from './sp-register/sp-register.component';
 import { FooterComponent } from './Footer/footer/footer.component';
+import { AboutComponent } from './about/about/about.component';
+import { ContactComponent } from './contact/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FooterComponent } from './Footer/footer/footer.component';
     ResgisterComponent,
     PagenotfoundComponent,
     SpRegisterComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
