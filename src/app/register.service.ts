@@ -24,7 +24,7 @@ export class RegisterService {
   }
   signup2(data:any):Observable<any>
   { 
-    //console.log(data);
+    console.log(data);
     return this.http.post('https://bookstore1-5p5m.vercel.app/contactuser',data);
   }
 }

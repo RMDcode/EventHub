@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder ,Validators,FormGroup} from '@angular/forms';
 import { RegisterService } from 'src/app/register.service';
 
@@ -8,55 +8,46 @@ import { RegisterService } from 'src/app/register.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  message:string="";
-  regForm!:FormGroup;
-  classname="d-none";
-  isProcess:boolean=false;
-  wordPattern= /^[a-z , . A-Z]+$/;
-  addresspattern=/^[a-z , . / :  0-9  A-Z]+$/;
-  numPattern= /^[0-9]+$/;
+  message = "";
+  regForm: FormGroup;
+  classname = "d-none";
+  isProcess = false;
   emailRegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-constructor(private fb: FormBuilder, private auth: RegisterService)
-{
-  this.regForm=this.fb.group({
-    'name':['',Validators.compose([ Validators.required, Validators.pattern(this.wordPattern)])],
-    'email':['',Validators.compose([ Validators.required,Validators.pattern(this.emailRegExp)])],
-    'message':['',Validators.compose([ Validators.required, Validators.pattern(this.wordPattern)])],
-  })
-  console.log(this.regForm);
-}
-ngOnInit():void {}
-  
-signup2()
-  {
-    alert("Account created");
-    const data=this.regForm.value;
-    delete data['confirm']
-    
-    this.auth.signup(data).subscribe((_res:any)=>{
-      if(_res.success)
-      {
-        this.isProcess=false;
-        this.message="Account has been created 0";
-        this.classname='alert alert-success';
-      }
-      else
-      { 
-        console.log(data)
-        this.isProcess=false;
-        this.message=_res.message;
-        this.classname='alert alert-danger';
-      }
-      this.regForm.reset();
-      }
-      ,(err:any)=>{
-        this.isProcess=false;
-        this.message="server Error !!";
-        this.classname='alert alert-danger';
-      }
-      
-    );
+  constructor(private fb: FormBuilder, private auth: RegisterService) {
+    this.regForm = this.fb.group({
+      'name': ['', [Validators.required, Validators.pattern(/[a-zA-Z , .]+/)]],
+      'email': ['', [Validators.required, Validators.pattern(this.emailRegExp)]],
+      'message': ['', [Validators.required]],
+    });
+    console.log(this.regForm);
+  }
 
+  ngOnInit(): void {}
+
+  signup2() {
+    alert("Message sent");
+    this.isProcess = true;
+    const data = this.regForm.value;
+    
+    this.auth.signup2(data).subscribe(
+      (_res: any) => {
+        if (_res.success) {
+          this.message = "Your message has been sent successfully.";
+          this.classname = 'alert alert-success';
+        } else {
+          this.message = _res.message;
+          this.classname = 'alert alert-danger';
+        }
+        this.isProcess = false;
+        this.regForm.reset();
+      },
+      (err: any) => {
+        this.message = "Server Error!";
+        this.classname = 'alert alert-danger';
+        this.isProcess = false;
+        console.error(err);
+      }
+    );
   }
 }

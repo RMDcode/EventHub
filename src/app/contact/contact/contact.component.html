@@ -5,15 +5,15 @@
       <form class="space-y-6"  [formGroup]="regForm">
         <div>
           <label for="name" class="block text-lg font-medium text-black py-3">Name</label>
-          <input type="text" name="name" id="name" required class="mt-1 block w-full h-10 p-3 border border-blue-100 rounded-md shadow-sm focus:ring-blue-0 focus:border-blue-0 sm:text-sm bg-transparent text-black">
+          <input type="text" formControlName="name" id="name" required class="mt-1 block w-full h-10 p-3 border border-blue-100 rounded-md shadow-sm focus:ring-blue-0 focus:border-blue-0 sm:text-sm bg-transparent text-black">
         </div>
         <div>
           <label for="email" class="block text-lg font-medium text-black">Email</label>
-          <input type="email" name="email" id="email" required class="mt-1 block w-full h-10 p-3 border border-blue-100 rounded-md shadow-sm focus:ring-blue-0 focus:border-blue-0 sm:text-sm bg-transparent text-black">
+          <input type="email" formControlName="email" id="email" required class="mt-1 block w-full h-10 p-3 border border-blue-100 rounded-md shadow-sm focus:ring-blue-0 focus:border-blue-0 sm:text-sm bg-transparent text-black">
         </div>
         <div>
           <label for="message" class="block text-lg font-medium text-black">Message</label>
-          <textarea name="message" id="message" rows="4" required class="mt-1 block w-full border border-blue-100 rounded-md shadow-sm focus:ring-blue-0 focus:border-blue-500 sm:text-sm bg-transparent text-black"></textarea>
+          <textarea formControlName="message" id="message" rows="4" required class="mt-1 block w-full border border-blue-100 rounded-md shadow-sm focus:ring-blue-0 focus:border-blue-500 sm:text-sm bg-transparent text-black"></textarea>
         </div>
         <div>
           <button type="submit" (click)="signup2()" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-0 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
